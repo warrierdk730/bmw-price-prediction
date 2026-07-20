@@ -203,6 +203,34 @@ jupyter
 
 ## 📄 Dataset Source
 
+A 2-page interactive Power BI dashboard built on the cleaned BMW used car dataset, focused on what drives resale price.
+
+**Page 1 — Overview**
+- KPI cards: Total Listings, Avg Price, Avg Mileage, Avg Car Age
+- Avg Price by Model (with drill-down: Model → Year)
+- Price Trend & Listing Volume by Year (combo chart — shows both average price and listing volume together, since early years have too few listings to trust the price trend alone)
+- Listings by Fuel Type (donut)
+- Slicers: Transmission, Fuel Type, Model
+
+![Dashboard Overview](assets/bmw_overview.png)
+
+**Page 2 — Price Drivers**
+- Price vs Mileage (scatter) — visualizes the depreciation curve as mileage increases
+- Avg Price by Transmission type
+- Avg Price by Fuel Type
+- Model-level summary table: Avg Price, Avg Mileage, Total Listings, sorted by price
+
+![Price Drivers](assets/bmw_price_drivers.png)
+
+**Built with:**
+- Power Query cleanup (text trimming on model/transmission/fuelType)
+- Calculated column: `Car Age`, derived from `year`
+- Custom DAX measures: Avg Price, Avg Mileage, Avg Car Age, Price per 1000 Miles, Min/Max Price
+- Combo chart used to sanity-check a trend against underlying sample size, rather than presenting an early-year average as reliable on its own
+- Interactive page navigation and drill-down hierarchy on the Model chart
+
+> Note: Dashboard built and run locally in Power BI Desktop.
+
 [BMW Used Car Dataset — Kaggle](https://www.kaggle.com/)  
 *UK market listings from 1996 to 2020.*
 
